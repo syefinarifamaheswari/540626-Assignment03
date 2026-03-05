@@ -4,7 +4,7 @@ Syefina Rifa' Maheswari
 
 ### Brief Description for each Solution
 
-(Problem 1 : Algorithm Analysis)
+### (Problem 1 : Algorithm Analysis)
 Solusi ini menganalisis tiga potongan kode menggunakan standard cost model, di mana setiap assignment, perbandingan, operasi aritmatika, dan akses array bernilai 1 unit biaya.
 Untuk setiap snippet dilakukan:
 1. Perhitungan exact operation count T(n) dengan anotasi baris dan jumlah eksekusi.
@@ -25,7 +25,7 @@ Untuk setiap snippet dilakukan:
   Best case = Worst case (tidak ada early termination).
 Analisis menunjukkan bahwa struktur loop dan pola pengulangan menentukan kelas kompleksitas algoritma.
 
-(Problem 2 : DynArray i Procedural Implementation)
+### (Problem 2 : DynArray i Procedural Implementation)
 Program ini mengimplementasikan resizable array menggunakan `struct` dan free functions (tanpa class, template, atau `std::vector`).
 ### Konsep Utama
 Struktur `DynArray` memiliki:
@@ -59,7 +59,7 @@ Di `main()` seluruh fungsi diuji:
 bash g++ -std=c++17 -Wall -Wextra problem2.cpp -o problem2
 ./problem2
 
-(Problem 3 : Linear Search vs Binary Search)
+### (Problem 3 : Linear Search vs Binary Search)
 
 ### Part A - Implement
 Program ini mengimplementasikan dan membandingkan dua algoritma pencarian:
@@ -98,7 +98,7 @@ bash g++ -std=c++17 -Wall -Wextra problem3.cpp -o problem3
 ### Part B - Complexity Comparison Table
 Solusi pada Part B ini melakukan analisis kompleksitas waktu untuk Linear Search dan Binary Search dalam kasus terbaik, terburuk, dan rata-rata. Linear Search memiliki kompleksitas O(n) pada rata-rata dan kasus terburuk, sedangkan Binary Search memiliki kompleksitas O(log n) karena setiap langkah mengurangi ruang pencarian menjadi setengah. Dari analisis pertumbuhan fungsi diperoleh bahwa pada kasus terburuk, Binary Search lebih efisien dibanding Linear Search untuk n ≥ 2, karena pertumbuhan logaritmik jauh lebih lambat dibanding pertumbuhan linear.
 
-(Problem 4 : Amortized Analysis of pushBack
+### (Problem 4 : Amortized Analysis of pushBack
 
 ### Part A - Trace
 Pada bagian ini dilakukan pelacakan 12 pemanggilan pushBack dengan kapasitas awal 2 dan strategi pertumbuhan doubling (capacity × 2 saat penuh).
@@ -129,21 +129,21 @@ Perbandingan akhir:
 Kesimpulan utama: strategi doubling memberikan performa yang jauh lebih baik dalam implementasi dynamic array.
 
 
-### Known Issued or Limitations
+### Known Issues or Limitations
 
 (Problem 1 : Algorithm Analysis)
 
 (Problem 2 : DynArray i Procedural Implementation)
 
 
-(Problem 3 : Linear Search vs Binary Search)
+### (Problem 3 : Linear Search vs Binary Search)
 - Binary Search membutuhkan array terurut, sehingga tidak dapat digunakan pada data yang tidak tersortir.
 - Perbandingan efisiensi bersifat teoritis (Big-O) dan tidak mengukur waktu eksekusi nyata.
 - Penggunaan raw pointer (new[] / delete[]) berpotensi menyebabkan memory leak jika tidak dikelola dengan benar.
 - Tidak menangani kasus duplikasi elemen secara khusus, sehingga tidak menjamin pengembalian indeks pertama pada Binary
 - Search jika terdapat nilai yang sama.
 
-(Problem 4 : Amortized Analysis of pushBack
+### (Problem 4 : Amortized Analysis of pushBack
 ### Doubling Strategy (capacity ×2)
 Kelebihan:
 - Total cost O(n)
