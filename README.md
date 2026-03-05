@@ -130,7 +130,9 @@ Kesimpulan utama: strategi doubling memberikan performa yang jauh lebih baik dal
 
 
 ### Compilation commands for each Source File
-- problem2.cpp
+- problem2.cpp 
 - problem3.cpp
 
 
+### Time Spent on the Assignment 
+= 4 days
