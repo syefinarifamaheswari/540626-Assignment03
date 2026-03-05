@@ -131,10 +131,35 @@ Kesimpulan utama: strategi doubling memberikan performa yang jauh lebih baik dal
 
 ### Known Issues or Limitations
 
-(Problem 1 : Algorithm Analysis)
+### (Problem 1 : Algorithm Analysis)
+- Model biaya disederhanakan
+  Diasumsikan setiap assignment, comparison, operasi aritmatika, dan akses array bernilai 1.
+  Pada praktiknya, biaya tiap operasi bisa berbeda.
+- Tidak mempertimbangkan faktor hardware**
+  Efek cache, memory hierarchy, dan branch prediction tidak dianalisis.
+- Optimasi compiler tidak dimodelkan**
+  Dengan flag seperti `-O2` atau `-O3`, compiler dapat mengubah jumlah operasi aktual.
+- Hanya fokus pada kompleksitas waktu**
+  Kompleksitas ruang (space complexity) tidak dibahas.
+- Big-O mengabaikan konstanta
+  Faktor konstanta dan suku orde rendah dihilangkan, padahal bisa berpengaruh untuk nilai `n` kecil.
+- Bersifat teoretis
+  Hasil analisis menunjukkan laju pertumbuhan fungsi, bukan waktu eksekusi nyata.
 
-(Problem 2 : DynArray i Procedural Implementation)
-
+### (Problem 2 : DynArray i Procedural Implementation)
+### Analisis Amortized
+Strategi yang digunakan adalah **doubling capacity** saat array penuh.  
+Meskipun satu kali resize membutuhkan O(n), total biaya untuk n kali `pushBack` adalah O(n), sehingga biaya rata-rata per operasi adalah O(1) amortized.
+### Kompleksitas Ruang
+Kompleksitas ruang adalah O(n).  
+Akibat strategi doubling, sebagian kecil memori dapat tidak terpakai, namun menjamin efisiensi waktu saat penambahan elemen.
+### Keterbatasan
+- Tidak ada pengecekan batas indeks.
+- Tidak ada mekanisme pengecilan kapasitas.
+- Tidak exception-safe dan tidak thread-safe.
+- Hanya mendukung tipe `int`.
+### Kesimpulan
+Implementasi ini menunjukkan prinsip dasar dynamic array, manajemen memori dinamis, serta konsep amortized analysis yang menjadi dasar struktur seperti `std::vector`.
 
 ### (Problem 3 : Linear Search vs Binary Search)
 - Binary Search membutuhkan array terurut, sehingga tidak dapat digunakan pada data yang tidak tersortir.
@@ -172,4 +197,4 @@ Karena itu, strategi multiplicative growth lebih umum digunakan dalam praktik.
 
 
 ### Time Spent on the Assignment 
-= 4 days
+= 4 days (monday - thursday)
