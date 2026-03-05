@@ -129,10 +129,45 @@ Perbandingan akhir:
 Kesimpulan utama: strategi doubling memberikan performa yang jauh lebih baik dalam implementasi dynamic array.
 
 
+### Known Issued or Limitations
+
+(Problem 1 : Algorithm Analysis)
+
+(Problem 2 : DynArray i Procedural Implementation)
+
+
+(Problem 3 : Linear Search vs Binary Search)
+- Binary Search membutuhkan array terurut, sehingga tidak dapat digunakan pada data yang tidak tersortir.
+- Perbandingan efisiensi bersifat teoritis (Big-O) dan tidak mengukur waktu eksekusi nyata.
+- Penggunaan raw pointer (new[] / delete[]) berpotensi menyebabkan memory leak jika tidak dikelola dengan benar.
+- Tidak menangani kasus duplikasi elemen secara khusus, sehingga tidak menjamin pengembalian indeks pertama pada Binary
+- Search jika terdapat nilai yang sama.
+
+(Problem 4 : Amortized Analysis of pushBack
+### Doubling Strategy (capacity ×2)
+Kelebihan:
+- Total cost O(n)
+- Amortised cost O(1)
+Keterbatasan:
+- Memory waste — bisa sampai ~50% kapasitas kosong setelah resize.
+- Cost spike — satu pushBack bisa O(n) saat resize.
+- Large allocation — alokasi besar bisa gagal di sistem dengan memori terbatas.
+### Fixed Increment Strategy (+k)
+Kelebihan:
+- Memory lebih terkontrol.
+Keterbatasan:
+- Total cost O(n²)
+- Resize terlalu sering
+- Amortised cost O(n) (tidak efisien untuk data besar)
+Kesimpulan:
+- Doubling → cepat tapi boros memori.
+- Fixed increment → hemat memori tapi sangat lambat untuk n besar.
+Karena itu, strategi multiplicative growth lebih umum digunakan dalam praktik.
+
 ### Compilation commands for each Source File
-- problem2.cpp
+- problem2.cpp :
   g++ -std=c++17 -Wall -Wextra problem2.cpp -o problem2
-- problem3.cpp
+- problem3.cpp :
   g++ -std=c++17 -Wall -Wextra problem3.cpp -o problem3
 
 
