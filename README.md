@@ -130,8 +130,10 @@ Kesimpulan utama: strategi doubling memberikan performa yang jauh lebih baik dal
 
 
 ### Compilation commands for each Source File
-- problem2.cpp 
+- problem2.cpp
+  g++ -std=c++17 -Wall -Wextra problem2.cpp -o problem2
 - problem3.cpp
+  g++ -std=c++17 -Wall -Wextra problem3.cpp -o problem3
 
 
 ### Time Spent on the Assignment 
