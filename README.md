@@ -1,7 +1,8 @@
 Syefina Rifa' Maheswari
 24/540626/TK/60030
 
-Brief Description for each Solution
+
+### Brief Description for each Solution
 
 (Problem 1 : Algorithm Analysis)
 Solusi ini menganalisis tiga potongan kode menggunakan standard cost model, di mana setiap assignment, perbandingan, operasi aritmatika, dan akses array bernilai 1 unit biaya.
@@ -98,3 +99,38 @@ bash g++ -std=c++17 -Wall -Wextra problem3.cpp -o problem3
 Solusi pada Part B ini melakukan analisis kompleksitas waktu untuk Linear Search dan Binary Search dalam kasus terbaik, terburuk, dan rata-rata. Linear Search memiliki kompleksitas O(n) pada rata-rata dan kasus terburuk, sedangkan Binary Search memiliki kompleksitas O(log n) karena setiap langkah mengurangi ruang pencarian menjadi setengah. Dari analisis pertumbuhan fungsi diperoleh bahwa pada kasus terburuk, Binary Search lebih efisien dibanding Linear Search untuk n ≥ 2, karena pertumbuhan logaritmik jauh lebih lambat dibanding pertumbuhan linear.
 
 (Problem 4 : Amortized Analysis of pushBack
+
+### Part A - Trace
+Pada bagian ini dilakukan pelacakan 12 pemanggilan pushBack dengan kapasitas awal 2 dan strategi pertumbuhan doubling (capacity × 2 saat penuh).
+Setiap pemanggilan dicatat nilai yang dimasukkan, ukuran (size) setelah operasi, kapasitas (capacity) setelah operasi, serta biaya operasi.
+Hasil trace menunjukkan bahwa resize hanya terjadi ketika array penuh, dan meskipun biaya resize cukup besar (karena menyalin seluruh elemen lama), operasi tersebut jarang terjadi. Sebagian besar operasi hanya berbiaya 1 (append biasa).
+
+### Part B - Total Cost
+Bagian ini menghitung total biaya dari 12 operasi dan menentukan rata-rata biaya per operasi.
+Dengan strategi doubling:
+- Total biaya untuk 12 operasi relatif kecil.
+- Total biaya untuk n operasi membentuk deret geometri.
+- Total copy work < 2n.
+Secara asimtotik:
+- Total cost = O(n)
+- Amortised cost per push = O(1)
+Kesimpulan: walaupun sesekali terjadi operasi mahal (resize), biaya rata-ratanya tetap konstan.
+
+### Part C - Growth factor comparison
+Pada bagian ini strategi pertumbuhan diubah menjadi fixed increment (+4 setiap resize).
+Hasil analisis menunjukkan:
+- Resize terjadi jauh lebih sering.
+- Total copy work membentuk deret aritmetika.
+- Total cost untuk n operasi menjadi O(n²).
+- Amortised cost per push menjadi O(n).
+Perbandingan akhir:
+- Doubling → efisien secara asimtotik (linear total cost).
+- Fixed increment → tidak efisien untuk n besar (kuadratik total cost).
+Kesimpulan utama: strategi doubling memberikan performa yang jauh lebih baik dalam implementasi dynamic array.
+
+
+### Compilation commands for each Source File
+- problem2.cpp
+- problem3.cpp
+
+
